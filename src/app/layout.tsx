@@ -1,4 +1,6 @@
 import { NextUIProvider } from "@nextui-org/react"
+import "./globals.css";
+import Header from "@/components/UI/Header";
 
 export const metadata = {
   title: 'Rick & Morty One',
@@ -14,10 +16,13 @@ export default function RootLayout({
   return (
     <html lang="en">
 
-      <body>
+      <body className="h-screen">
         <NextUIProvider>
-          <h1>Rick and Morty ONE</h1>
-          {children}
+          <Header />
+          <main className="container mx-auto ">
+            <h1 className="mx-auto">Rick and Morty ONE</h1>
+            {children}
+          </main>
         </NextUIProvider>
       </body>
     </html>
