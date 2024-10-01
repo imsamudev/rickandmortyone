@@ -1,6 +1,6 @@
-import { NextUIProvider } from "@nextui-org/react"
 import "./globals.css";
-import Header from "@/components/UI/Header";
+import Header from "@/components/UI/Header/Header";
+import { Providers } from "./providers";
 
 export const metadata = {
   title: 'Rick & Morty One',
@@ -15,16 +15,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-
       <body className="h-screen">
-        <NextUIProvider>
+        <Providers>
           <Header />
-          <main className="container mx-auto ">
-            <h1 className="mx-auto">Rick and Morty ONE</h1>
+          <main className="container mx-auto">
             {children}
           </main>
-        </NextUIProvider>
+        </Providers>
       </body>
-    </html>
+    </html >
   )
 }
