@@ -11,10 +11,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-          lightBlue: '#42B4CA',
-          darkBlue: '#0A1128',
-          darkBlueGreen: '#193840',
-          limeGreen: '#BFDE42',
+          primary: '#42B4CA', //light blue
+          secondary: '#0A1128', //dark blue
+          tertiary: '#193840', //dark blue green
+          accent: '#BFDE42', //limegreen
       },
     },
   },
