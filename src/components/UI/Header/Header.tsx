@@ -6,6 +6,7 @@ import Image from "next/image";
 import Logo from "@/assets/logo/Logo.svg";
 import rym0 from "@/assets/globals/rym0.svg";
 import Link from "next/link";
+import Switcher from "@/components/UI/Header/Switcher";
 
 const navLinks: NavLink[] = [
     { label: "Characters", href: "/characters" },
@@ -30,11 +31,12 @@ const Header: React.FC = () => {
                         <Link
                             key={label}
                             href={href}
-                            className="text-xl text-darkBlue font-medium p-2"
+                            className="text-xl font-medium p-2"
                         >
                             {label}
                         </Link>
                     ))}
+                    <Switcher />
                 </nav>
                 <div className="block sm:hidden">
                     <button
@@ -49,12 +51,12 @@ const Header: React.FC = () => {
 
             {isMenuOpen && (
                 <div className="fixed inset-0 z-10 sm:hidden">
-                    <div className="relative bg-white flex flex-col h-full w-full p-4 ml-auto animate-fade animate-duration-500">
+                    <div className="relative bg-white dark:bg-black dark:text-white flex flex-col h-full w-full p-4 ml-auto animate-fade animate-duration-500">
                         <div className="flex justify-between">
                             <Link
                                 href={"/"}
                                 className="flex items-center space-x-2 animate-fade-down animate-duration-500"
-                                style={{ animationDelay: `${navLinks.length * 0.2 + 0.45}s` }}
+                                style={{ animationDelay: `${navLinks.length * 0.2 + 0.65}s` }}
                             >
                                 <Image src={Logo} alt="Logo" width={150} height={150} />
                             </Link>
@@ -71,16 +73,23 @@ const Header: React.FC = () => {
                                 <Link
                                     key={label}
                                     href={href}
-                                    className="text-xl font-bold text-darkBlue py-4 px-2 animate-fade-left animate-duration-500"
+                                    className="text-xl font-bold py-4 px-2 animate-fade-left animate-duration-500"
                                     style={{ animationDelay: `${index * 0.2 + 0.4}s` }}
                                     onClick={toggleMenu}
                                 >
                                     {label}
                                 </Link>
                             ))}
+                            <div
+                                className="py-4 px-2 animate-fade animate-duration-500"
+                                style={{ animationDelay: `${navLinks.length * 0.2 + 0.4}s` }}
+                            >
+                                <Switcher />
+                            </div>
                         </nav>
+
                         <div>
-                            <Image className="absolute bottom-1 right-2 opacity-25" src={rym0} alt='rickandmortySVG' width={150} height={150} />
+                            <Image className="absolute bottom-1 right-2 opacity-25 dark:drop-shadow-[0rem_0rem_.2rem_rgba(255,255,255,1)]" src={rym0} alt='rickandmortySVG' width={150} height={150} />
                         </div>
                     </div>
                 </div>
