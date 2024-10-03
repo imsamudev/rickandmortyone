@@ -10,8 +10,8 @@ import Switcher from "@/components/UI/Header/Switcher";
 
 const navLinks: NavLink[] = [
     { label: "Characters", href: "/characters" },
-    { label: "Episodes", href: "/episodes" },
     { label: "Locations", href: "/locations" },
+    { label: "Episodes", href: "/episodes" },
     { label: "About", href: "/about" },
 ];
 
