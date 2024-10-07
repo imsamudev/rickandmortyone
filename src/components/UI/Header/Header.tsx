@@ -36,16 +36,20 @@ const Header: React.FC = () => {
                             {label}
                         </Link>
                     ))}
-                    <Switcher />
                 </nav>
-                <div className="block sm:hidden">
-                    <button
-                        onClick={toggleMenu}
-                        aria-label="Toggle menu"
-                        className="text-2xl"
-                    >
-                        {isMenuOpen ? <FaXmark /> : <FaBars />}
-                    </button>
+                <div className="flex justify-center items-center">
+                    <div className="px-4">
+                        <Switcher />
+                    </div>
+                    <div className="block sm:hidden pt-1">
+                        <button
+                            onClick={toggleMenu}
+                            aria-label="Toggle menu"
+                            className="text-2xl"
+                        >
+                            {isMenuOpen ? <FaXmark /> : <FaBars />}
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -80,12 +84,6 @@ const Header: React.FC = () => {
                                     {label}
                                 </Link>
                             ))}
-                            <div
-                                className="py-4 px-2 animate-fade animate-duration-500"
-                                style={{ animationDelay: `${navLinks.length * 0.2 + 0.4}s` }}
-                            >
-                                <Switcher />
-                            </div>
                         </nav>
 
                         <div>
