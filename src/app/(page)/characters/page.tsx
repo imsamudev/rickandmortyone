@@ -40,6 +40,13 @@ const CharactersPage: React.FC = () => {
         fetchCharacters(query, currentPage);
     }, [query, currentPage]);
 
+    const handleSearch = (searchQuery: string) => {
+        if (searchQuery !== query) {
+            setQuery(searchQuery);
+            setCurrentPage(1);
+        }
+    };
+
     const handlePrevPage = () => {
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
@@ -56,7 +63,7 @@ const CharactersPage: React.FC = () => {
         <div className="container mx-auto px-4 py-8">
             <h1 className="text-3xl font-bold mb-6">Rick and Morty Characters</h1>
 
-            <FilterCharacter onSearch={setQuery} loading={loading} />
+            <FilterCharacter onSearch={handleSearch} loading={loading} />
 
             {loading ? (
                 <div className='w-full h-[100vh] flex justify-center items-center'>
