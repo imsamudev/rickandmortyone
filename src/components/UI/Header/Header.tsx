@@ -55,7 +55,7 @@ const Header: React.FC = () => {
 
             {isMenuOpen && (
                 <div className="fixed inset-0 z-10 sm:hidden">
-                    <div className="relative bg-white dark:bg-black dark:text-white flex flex-col h-full w-full p-4 ml-auto animate-fade animate-duration-500">
+                    <div className="relative bg-white dark:bg-black dark:text-white flex flex-col h-full w-full p-4 ml-auto animate-fade animate-duration-500 z-50">
                         <div className="flex justify-between">
                             <Link
                                 href={"/"}
