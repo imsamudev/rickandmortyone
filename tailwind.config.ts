@@ -16,6 +16,20 @@ const config: Config = {
           tertiary: '#193840', //dark blue green
           accent: '#BFDE42', //limegreen
       },
+      animation: {
+        'fade-in': 'fadeIn .8s ease-in',
+        'fade-out': 'fadeOut .8s ease-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeOut: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+        }
     },
   },
   darkMode: "class",
