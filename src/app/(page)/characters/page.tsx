@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from '@/components/Characters/Card';
@@ -61,7 +61,7 @@ const CharactersPage: React.FC = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h1 className="text-3xl font-bold mb-6">Rick and Morty Characters</h1>
+            <h1 className="text-3xl lg:text-5xl font-bold mb-6 text-center">Rick and Morty Characters</h1>
 
             <FilterCharacter onSearch={handleSearch} loading={loading} />
 
