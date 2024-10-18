@@ -2,7 +2,6 @@ import "./globals.css";
 import { Inter, Open_Sans } from 'next/font/google'
 import Header from "@/components/UI/Header/Header";
 import { Providers } from "./providers";
-import { GOOGLE_FONT_PROVIDER } from "next/dist/shared/lib/constants";
 
 export const metadata = {
   title: 'Rick & Morty One',
