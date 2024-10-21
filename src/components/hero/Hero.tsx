@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Link from 'next/link';
@@ -44,18 +45,28 @@ export default function CarouselHero() {
 
     useEffect(() => {
         const header = document.querySelector('header');
-        if (header) {
-            setHeaderHeight(header.offsetHeight);
-        }
 
-        const handleResize = () => {
+        const updateHeaderHeight = () => {
             if (header) {
                 setHeaderHeight(header.offsetHeight);
             }
         };
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        updateHeaderHeight();
+
+        const observer = new ResizeObserver(() => {
+            updateHeaderHeight();
+        });
+
+        if (header) {
+            observer.observe(header);
+        }
+
+        return () => {
+            if (header) {
+                observer.unobserve(header);
+            }
+        };
     }, []);
 
     return (
@@ -63,7 +74,7 @@ export default function CarouselHero() {
             modules={[Autoplay]}
             autoplay={{ delay: 5000 }}
             slidesPerView={1}
-            style={{ height: `calc(100vh - ${headerHeight}px) ` }}
+            style={{ height: `calc(100vh - ${headerHeight}px)` }}
         >
             {slides.map((slide, index) => (
                 <SwiperSlide key={index}>
@@ -71,6 +82,7 @@ export default function CarouselHero() {
                         <Image
                             src={slide.backgroundImage}
                             alt={slide.title}
+                            priority={index === 0}
                             fill
                             style={{ objectFit: 'cover' }}
                         />
