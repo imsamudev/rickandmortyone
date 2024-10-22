@@ -11,9 +11,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-          primary: '#42B4CA', //light blue
+      // The secondary colors "_number" are lighter
+          primary: '#42B4CA', //light blue 1
+          primary_1: '#86e3f6', //light blue 2
           secondary: '#0A1128', //dark blue
-          tertiary: '#193840', //dark blue green
+          secondary_1: '#121f49', //dark blue 2
           accent: '#BFDE42', //limegreen
       },
       animation: {
