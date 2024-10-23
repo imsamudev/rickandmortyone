@@ -1,7 +1,8 @@
 import "./globals.css";
-import { Inter, Open_Sans } from 'next/font/google'
+import { Work_Sans } from 'next/font/google'
 import Header from "@/components/UI/Header/Header";
 import { Providers } from "./providers";
+
 
 export const metadata = {
   title: 'Rick & Morty One',
@@ -9,7 +10,7 @@ export const metadata = {
   keywords: 'Rick and Morty, API, Next, Project, Science Fiction, Animated Series',
 };
 
-const globalFont = Open_Sans({ subsets: ["latin"], weight: "400" });
+const globalFont = Work_Sans({ subsets: ["latin"], weight: "400" });
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -18,7 +19,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={globalFont.className}>
+      <body className={`bg-gradient-to-tr from-white to-gray-200 dark:from-secondary_1 dark:to-secondary text-secondary dark:text-primary  ${globalFont.className}`}>
         <Providers>
           <Header />
           <main className="container mx-auto">
