@@ -7,6 +7,7 @@ import Logo from "@/assets/logo/Logo.svg";
 import rym0 from "@/assets/globals/rym0.svg";
 import Link from "next/link";
 import Switcher from "@/components/UI/Header/Switcher";
+import { Divider } from "@nextui-org/react";
 
 const navLinks: NavLink[] = [
     { label: "Characters", href: "/characters" },
@@ -19,7 +20,7 @@ const Header: React.FC = () => {
     const { isMenuOpen, toggleMenu } = useStore();
 
     return (
-        <header className=" w-full p-4 shadow-md">
+        <header className=" w-full p-4">
             <div className="container mx-auto flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                     <Link href={"/"} className="flex items-center space-x-2">
@@ -38,7 +39,7 @@ const Header: React.FC = () => {
                     ))}
                 </nav>
                 <div className="flex justify-center items-center">
-                    <div className="px-4">
+                    <div className="px-4 mx-4">
                         <Switcher />
                     </div>
                     <div className="block sm:hidden pt-1">
@@ -55,11 +56,11 @@ const Header: React.FC = () => {
 
             {isMenuOpen && (
                 <div className="fixed inset-0 z-10 sm:hidden">
-                    <div className="relative bg-white dark:bg-black dark:text-white flex flex-col h-full w-full p-4 ml-auto animate-fade animate-duration-500 z-50">
+                    <div className="relative bg-gradient-to-tr from-primary_1 to-primary dark:from-secondary_1 dark:to-secondary text-secondary dark:text-primary flex flex-col h-full w-full p-4 ml-auto animate-fade animate-duration-500 z-50">
                         <div className="flex justify-between">
                             <Link
                                 href={"/"}
-                                className="flex items-center space-x-2 animate-fade-down animate-duration-500"
+                                className="flex text-xl items-center space-x-2 animate-fade-down animate-duration-500"
                                 style={{ animationDelay: `${navLinks.length * 0.2 + 0.65}s` }}
                             >
                                 <Image src={Logo} alt="Logo" width={150} height={150} />
@@ -72,22 +73,24 @@ const Header: React.FC = () => {
                                 <FaXmark />
                             </button>
                         </div>
-                        <nav className="flex flex-col mt-4">
+                        <nav className="flex flex-col mt-4 items-center">
                             {navLinks.map(({ label, href }, index) => (
                                 <Link
                                     key={label}
                                     href={href}
-                                    className="text-xl font-bold py-4 px-2 animate-fade-left animate-duration-500"
+                                    className="text-2xl py-4 mt-2 text-center animate-fade-up animate-duration-500"
                                     style={{ animationDelay: `${index * 0.2 + 0.4}s` }}
                                     onClick={toggleMenu}
                                 >
                                     {label}
+                                    <Divider orientation='horizontal'
+                                        className="bg-primary my-2" />
                                 </Link>
                             ))}
                         </nav>
 
                         <div>
-                            <Image className="absolute bottom-1 right-2 opacity-25 dark:drop-shadow-[0rem_0rem_.2rem_rgba(255,255,255,1)]" src={rym0} alt='rickandmortySVG' width={150} height={150} />
+                            <Image className="absolute bottom-1 right-2 opacity-25" src={rym0} alt='rickandmortySVG' width={150} height={150} />
                         </div>
                     </div>
                 </div>
