@@ -36,18 +36,32 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
     if (!mounted || loading) {
         return (
-            <div className={`flex flex-col h-screen justify-center items-center text-center bg-gradient-to-tr from-black to-secondary
+            <NextThemesProvider attribute="class" defaultTheme="dark" enableSystem>
+                <div className={`flex flex-col h-screen justify-center items-center text-center bg-gradient-to-tr from-white to-gray-300 dark:from-black dark:to-secondary
                 ${exiting ? 'animate-fade-out' : 'animate-fade-in'}`}>
-                <Image src={Logo} alt="Logo" width={320} height={320} className='py-8' />
-                <Spinner className='p-4' label="Rick's working his magic, just a moment..." labelColor='primary' color="primary" size="lg" />
-                <Image
-                    src="/images/global/rick.svg"
-                    alt="Rick svg"
-                    width={200}
-                    height={200}
-                    className='animate-delay-100 animate-appearance-in animate-iteration-infinite animate-duration-1000'
-                />
-            </div>
+                    <Image
+                        src={Logo}
+                        alt="Logo"
+                        width={280} height={280}
+                        className='py-8'
+                    />
+                    <Spinner
+
+                        label="Rick's working his magic, just a moment..."
+                        labelColor='primary'
+                        color="primary"
+                        size="lg"
+                        className='p-4'
+                    />
+                    <Image
+                        src="/images/global/rick.svg"
+                        alt="Rick svg"
+                        width={200}
+                        height={200}
+                        className='animate-delay-100 animate-appearance-in animate-iteration-infinite animate-duration-1000'
+                    />
+                </div>
+            </NextThemesProvider>
         );
     }
 
