@@ -16,7 +16,7 @@ const Card: React.FC<CardProps> = ({ character }) => {
     return (
         <>
             <div
-                className="bg-secondary text-white rounded-lg shadow-md overflow-hidden max-w-sm hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                className="bg-gradient-to-tr from-primary to-primary_1 dark:from-secondary dark:to-secondary_1 text-white dark:text-primary rounded-lg shadow-md shadow-secondary dark:shadow-primary overflow-hidden max-w-sm hover:opacity-70  hover:transition-all hover:duration-300 cursor-pointer"
                 onClick={handleOpenModal}
             >
                 <div className="relative w-full h-64">
