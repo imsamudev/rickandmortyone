@@ -5,7 +5,8 @@ import Card from '@/components/Characters/Card';
 import FilterCharacter from '@/components/Characters/FilterCharacter';
 import { Character } from '@/types/Characters';
 import { PaginationInfo } from '@/types/Pagination';
-import { Spinner } from "@nextui-org/react";
+import { Divider, Spinner } from "@nextui-org/react";
+
 
 const CharactersPage: React.FC = () => {
     const [characters, setCharacters] = useState<Character[]>([]);
@@ -61,9 +62,27 @@ const CharactersPage: React.FC = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h1 className="text-3xl lg:text-5xl font-bold mb-6 text-center">Rick and Morty Characters</h1>
+            <div className='h-[40vh]'>
+                <h1 className="text-5xl text-center md:text-right text-primary md:text-6xl lg:text-8xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mb-8 mt-6 py-4 animate-fade-in animate-duration-1000">
+                    <span className="text-2xl md:text-3xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-tr from-accent to-primary">
+                        Rick and Morty
+                    </span>
+                    <Divider orientation='horizontal' className='my-2' />
+                    Characters
+                </h1>
+            </div>
 
-            <FilterCharacter onSearch={handleSearch} loading={loading} />
+            <div className='text-center md:text-left'>
+                <p className='text-2xl md:text-3xl px-1 animate-fade-in animate-duration-1000'>
+                    Discover all the characters available in the serie
+                </p>
+                <p className='text-base md:text-lg mb-4 px-1 animate-pulse animate-duration-1000 animate-infinite animate-delay-1000'>
+                    Start by searching for your favorite characters
+                </p>
+                <div className='w-[100%] flex justify-start mt-4'>
+                    <FilterCharacter onSearch={handleSearch} loading={loading} />
+                </div>
+            </div>
 
             {loading ? (
                 <div className='w-full h-[100vh] flex justify-center items-center'>
@@ -75,7 +94,7 @@ const CharactersPage: React.FC = () => {
                 </div>
             ) : (
                 <>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                         {characters.map((character) => (
                             <Card key={character.id} character={character} />
                         ))}
@@ -85,7 +104,7 @@ const CharactersPage: React.FC = () => {
                             <button
                                 onClick={handlePrevPage}
                                 disabled={currentPage <= 1}
-                                className="px-4 py-2 bg-primary text-white rounded-lg disabled:bg-gray-300"
+                                className="px-4 py-2 bg-primary dark:bg-secondary_1 text-white dark:text-primary rounded-lg shadow-sm shadow-secondary dark:shadow-primary disabled:bg-primary_1 dark:disabled:bg-secondary hover:opacity-70 disabled:hover:opacity-100"
                             >
                                 Prev
                             </button>
@@ -93,7 +112,7 @@ const CharactersPage: React.FC = () => {
                             <button
                                 onClick={handleNextPage}
                                 disabled={!paginationInfo || currentPage >= paginationInfo.pages}
-                                className="px-4 py-2 bg-primary text-white rounded-lg disabled:bg-gray-300"
+                                className="px-4 py-2 bg-primary dark:bg-secondary_1 text-white dark:text-primary rounded-lg shadow-sm shadow-secondary dark:shadow-primary disabled:bg-primary_1 dark:disabled:bg-secondary hover:opacity-70 disabled:hover:opacity-100"
                             >
                                 Next
                             </button>
