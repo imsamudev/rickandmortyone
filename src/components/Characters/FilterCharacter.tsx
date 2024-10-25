@@ -19,9 +19,11 @@ const FilterCharacter: React.FC<FilterCharacterProps> = ({ onSearch, loading }) 
     }, [query, onSearch]);
 
     return (
-        <div className="mb-6 flex justify-center items-center">
+        <div className="mb-12 flex justify-center items-center w-[100%] lg:w-[35%] ">
             <Input
-                fullWidth
+                color='primary'
+                radius='lg'
+                size='lg'
                 placeholder="Search characters..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
