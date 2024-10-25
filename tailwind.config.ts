@@ -17,6 +17,7 @@ const config: Config = {
           secondary: '#0A1128', //dark blue
           secondary_1: '#121f49', //dark blue 2
           accent: '#BFDE42', //limegreen
+          white: '#f3f3f3',
       },
       animation: {
         'fade-in': 'fadeIn .8s ease-in',
