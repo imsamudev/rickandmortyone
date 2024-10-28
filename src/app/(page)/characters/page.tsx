@@ -62,8 +62,8 @@ const CharactersPage: React.FC = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <div className='h-[40vh]'>
-                <h1 className="text-5xl text-center md:text-right text-primary md:text-6xl lg:text-8xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mb-8 mt-6 py-4 animate-fade-in animate-duration-1000">
+            <div className='h-[30vh]'>
+                <h1 className="text-5xl text-center md:text-right md:text-6xl lg:text-8xl drop-shadow-[-1.2px_1.2px_1.2px_rgba(0,0,0,0.8)] text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary dark:to-primary_1 mb-8 mt-6 py-4 animate-fade-in animate-duration-1000">
                     <span className="text-2xl md:text-3xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-tr from-accent to-primary">
                         Rick and Morty
                     </span>
@@ -77,7 +77,7 @@ const CharactersPage: React.FC = () => {
                     Discover all the characters available in the serie
                 </p>
                 <p className='text-base md:text-lg mb-4 px-1 animate-pulse animate-duration-1000 animate-infinite animate-delay-1000'>
-                    Start by searching for your favorite characters
+                    Start by searching for your favorite characters!
                 </p>
                 <div className='w-[100%] flex justify-start mt-4'>
                     <FilterCharacter onSearch={handleSearch} loading={loading} />
@@ -86,7 +86,7 @@ const CharactersPage: React.FC = () => {
 
             {loading ? (
                 <div className='w-full h-[100vh] flex justify-center items-center'>
-                    <Spinner label="Loading characters..." color="primary" size="lg" />
+                    <Spinner label="Loading characters..." labelColor="primary" color="primary" size="lg" />
                 </div>
             ) : error ? (
                 <div className="w-full h-[100vh] flex justify-center items-center">

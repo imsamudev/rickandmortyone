@@ -1,4 +1,4 @@
-"use client"; // Indica que este componente se debe ejecutar en el cliente
+"use client";
 
 import React, { ReactNode, ErrorInfo } from 'react';
 
@@ -16,7 +16,8 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
         this.state = { hasError: false };
     }
 
-    static getDerivedStateFromError(_: Error) {
+    static getDerivedStateFromError(_error: Error) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         return { hasError: true };
     }
 

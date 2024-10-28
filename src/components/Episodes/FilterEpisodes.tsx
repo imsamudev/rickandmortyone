@@ -7,7 +7,7 @@ interface FilterEpisodesProps {
     loading: boolean;
 }
 
-const FilterEpisodes: React.FC<FilterEpisodesProps> = ({ onSearch, loading }) => {
+const FilterEpisodes: React.FC<FilterEpisodesProps> = ({ onSearch }) => {
     const [searchTerm, setSearchTerm] = useState<string>('');
 
     useEffect(() => {

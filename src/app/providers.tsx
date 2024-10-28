@@ -20,6 +20,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
         window.requestAnimationFrame(() => {
             document.body.style.display = 'none';
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             document.body.offsetHeight;
             document.body.style.display = '';
         });

@@ -7,7 +7,7 @@ interface FilterLocationsProps {
     loading: boolean;
 }
 
-const FilterLocations: React.FC<FilterLocationsProps> = ({ onSearch, loading }) => {
+const FilterLocations: React.FC<FilterLocationsProps> = ({ onSearch }) => {
     const [searchTerm, setSearchTerm] = useState<string>('');
 
     useEffect(() => {
@@ -19,9 +19,11 @@ const FilterLocations: React.FC<FilterLocationsProps> = ({ onSearch, loading }) 
     }, [searchTerm, onSearch]);
 
     return (
-        <div className="mb-6 flex justify-center items-center">
+        <div className="mb-12 flex justify-center items-center w-[100%] lg:w-[35%] ">
             <Input
-                fullWidth
+                color='primary'
+                radius='lg'
+                size='lg'
                 placeholder="Search locations..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}

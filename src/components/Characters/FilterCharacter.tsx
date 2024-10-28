@@ -7,7 +7,7 @@ interface FilterCharacterProps {
     loading: boolean;
 }
 
-const FilterCharacter: React.FC<FilterCharacterProps> = ({ onSearch, loading }) => {
+const FilterCharacter: React.FC<FilterCharacterProps> = ({ onSearch }) => {
     const [query, setQuery] = useState<string>('');
 
     useEffect(() => {
