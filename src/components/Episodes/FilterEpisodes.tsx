@@ -19,9 +19,11 @@ const FilterEpisodes: React.FC<FilterEpisodesProps> = ({ onSearch }) => {
     }, [searchTerm, onSearch]);
 
     return (
-        <div className="mb-6 flex justify-center items-center">
+        <div className="mb-12 flex justify-center items-center w-[100%] lg:w-[35%] ">
             <Input
-                fullWidth
+                color='primary'
+                radius='lg'
+                size='lg'
                 placeholder="Search episodes..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
