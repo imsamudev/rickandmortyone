@@ -94,7 +94,7 @@ const CharactersPage: React.FC = () => {
                 </div>
             ) : (
                 <>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                    <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 sm:justify-items-start md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                         {characters.map((character) => (
                             <Card key={character.id} character={character} />
                         ))}
