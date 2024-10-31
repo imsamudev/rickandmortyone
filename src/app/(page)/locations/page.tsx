@@ -61,8 +61,8 @@ const LocationsPage: React.FC = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <div className='h-[30vh]'>
-                <h1 className="text-5xl text-center md:text-right md:text-6xl lg:text-8xl drop-shadow-[-1.2px_1.2px_1.2px_rgba(0,0,0,0.8)] text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary dark:to-primary_1 mb-8 mt-6 py-4 animate-fade-in animate-duration-1000">
+            <div className='h-[30vh] animate-fade-left animate-duration-500 animate-delay-400'>
+                <h1 className="text-5xl text-center md:text-right md:text-6xl lg:text-8xl drop-shadow-[-1.2px_1.2px_1.2px_rgba(0,0,0,0.8)] text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary dark:to-primary_1 mb-8 mt-6 py-4">
                     <span className="text-2xl md:text-3xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-tr from-accent to-primary">
                         Rick and Morty
                     </span>
@@ -71,8 +71,8 @@ const LocationsPage: React.FC = () => {
                 </h1>
             </div>
 
-            <div className='text-center md:text-left'>
-                <p className='text-2xl md:text-3xl px-1 animate-fade-in animate-duration-1000'>
+            <div className='text-center md:text-left animate-fade-right animate-duration-500 animate-delay-600'>
+                <p className='text-2xl md:text-3xl px-1'>
                     Discover all the locations available in the serie
                 </p>
                 <p className='text-base md:text-lg mb-4 px-1 animate-pulse animate-duration-1000 animate-infinite animate-delay-1000'>
@@ -93,7 +93,9 @@ const LocationsPage: React.FC = () => {
                 </div>
             ) : (
                 <>
-                    <TableLocations locations={locations} />
+                    <div className='animate-fade-up animate-duration-500 animate-delay-200'>
+                        <TableLocations locations={locations} />
+                    </div>
 
                     {paginationInfo && (
                         <div className="mt-8 flex justify-center items-center space-x-4">
