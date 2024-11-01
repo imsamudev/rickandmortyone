@@ -64,7 +64,7 @@ const LocationsPage: React.FC = () => {
     return (
         <div className="container mx-auto px-4 py-8">
             <HeroSection title="Locations" />
-            <div className='text-left animate-fade-up animate-duration-500 animate-delay-600 sm:animate-fade-right'>
+            <div className='text-left my-4 animate-fade-up animate-duration-500 animate-delay-600 sm:animate-fade-right'>
                 <FilterTitles section="locations" />
                 <div className='w-[100%] flex justify-start mt-4'>
                     <FilterLocations onSearch={handleSearch} loading={loading} />

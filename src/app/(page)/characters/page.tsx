@@ -65,7 +65,7 @@ const CharactersPage: React.FC = () => {
     return (
         <div className="container mx-auto px-4 py-8">
             <HeroSection title="Characters" />
-            <div className='text-left animate-fade-up animate-duration-500 animate-delay-600 sm:animate-fade-right'>
+            <div className='text-left my-4 animate-fade-up animate-duration-500 animate-delay-600 sm:animate-fade-right'>
                 <FilterTitles section="characters" />
                 <div className='w-[100%] flex justify-start mt-4'>
                     <FilterCharacter onSearch={handleSearch} loading={loading} />

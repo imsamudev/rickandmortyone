@@ -27,12 +27,12 @@ const Header: React.FC = () => {
                         <Image src={Logo} alt="Logo" width={150} height={150} />
                     </Link>
                 </div>
-                <nav className="hidden sm:flex sm:items-center sm:space-x-6 lg:space-x-8 ml-auto">
+                <nav className="hidden sm:flex sm:items-center sm:space-x-2 lg:space-x-4">
                     {navLinks.map(({ label, href }) => (
                         <Link
                             key={label}
                             href={href}
-                            className="text-xl font-medium p-2"
+                            className="text-base lg:text-xl font-medium p-2"
                         >
                             {label}
                         </Link>
