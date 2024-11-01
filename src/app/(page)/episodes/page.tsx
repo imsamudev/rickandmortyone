@@ -1,11 +1,14 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import HeroSection from '@/components/UI/HeroSection/HeroSection';
+import FilterTitles from '@/components/UI/FilterTitles/FilterTitles';
 import TableEpisodes from '@/components/Episodes/TableEpisodes';
 import FilterEpisodes from '@/components/Episodes/FilterEpisodes';
-import { Divider, Spinner } from "@nextui-org/react";
+import { Spinner } from "@nextui-org/react";
 import { Episode } from '@/types/Episodes';
 import { PaginationInfo } from '@/types/Pagination';
+
 
 const EpisodesPage: React.FC = () => {
     const [episodes, setEpisodes] = useState<Episode[]>([]);
@@ -61,23 +64,9 @@ const EpisodesPage: React.FC = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <div className='h-[30vh] animate-fade-left animate-duration-500 animate-delay-400'>
-                <h1 className="text-5xl text-center md:text-right md:text-6xl lg:text-8xl drop-shadow-[-1.2px_1.2px_1.2px_rgba(0,0,0,0.8)] text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary dark:to-primary_1 mb-8 mt-6 py-4">
-                    <span className="text-2xl md:text-3xl lg:text-5xl text-transparent bg-clip-text bg-gradient-to-tr from-accent to-primary">
-                        Rick and Morty
-                    </span>
-                    <Divider orientation='horizontal' className='my-2' />
-                    Episodes
-                </h1>
-            </div>
-
-            <div className='text-center md:text-left animate-fade-right animate-duration-500 animate-delay-600'>
-                <p className='text-2xl md:text-3xl px-1'>
-                    Discover all the episodes available in the serie
-                </p>
-                <p className='text-base md:text-lg mb-4 px-1 animate-pulse animate-duration-1000 animate-infinite animate-delay-1000'>
-                    Start by searching for your favorite episodes!
-                </p>
+            <HeroSection title="Episodes" />
+            <div className='text-left animate-fade-up animate-duration-500 animate-delay-600 sm:animate-fade-right'>
+                <FilterTitles section="episodes" />
                 <div className='w-[100%] flex justify-start mt-4'>
                     <FilterEpisodes onSearch={handleSearch} loading={loading} />
                 </div>
