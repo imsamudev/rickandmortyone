@@ -27,19 +27,19 @@ const Header: React.FC = () => {
                         <Image src={Logo} alt="Logo" width={150} height={150} />
                     </Link>
                 </div>
-                <nav className="hidden sm:flex sm:items-center sm:space-x-2 lg:space-x-4">
+                <nav className="hidden sm:flex sm:items-center sm:space-x-2 lg:space-x-4 ml-auto">
                     {navLinks.map(({ label, href }) => (
                         <Link
                             key={label}
                             href={href}
-                            className="text-base lg:text-xl font-medium p-2"
+                            className="text-base lg:text-xl xl:text-2xl font-medium p-2"
                         >
                             {label}
                         </Link>
                     ))}
                 </nav>
                 <div className="flex justify-center items-center">
-                    <div className="px-4 mx-4">
+                    <div className="px-4 sm:px-2 sm:pl-4">
                         <Switcher />
                     </div>
                     <div className="block sm:hidden pt-1">
@@ -56,12 +56,12 @@ const Header: React.FC = () => {
 
             {isMenuOpen && (
                 <div className="fixed inset-0 z-10 sm:hidden">
-                    <div className="relative bg-gradient-to-tr from-primary_1 to-primary dark:from-secondary_1 dark:to-secondary text-secondary dark:text-primary flex flex-col h-full w-full p-4 ml-auto animate-fade animate-duration-500 z-50">
+                    <div className="relative bg-gradient-to-tr from-primary_1 to-primary dark:from-secondary_1 dark:to-secondary text-secondary dark:text-primary flex flex-col h-full w-full p-4 ml-auto animate-fade animate-duration-300 z-50">
                         <div className="flex justify-between">
                             <Link
                                 href={"/"}
-                                className="flex text-xl items-center space-x-2 animate-fade-down animate-duration-500"
-                                style={{ animationDelay: `${navLinks.length * 0.2 + 0.65}s` }}
+                                className="flex text-xl items-center space-x-2 animate-fade-down animate-duration-300"
+                                style={{ animationDelay: `${navLinks.length * 0.2 + 0.35}s` }}
                             >
                                 <Image src={Logo} alt="Logo" width={150} height={150} />
                             </Link>
@@ -78,8 +78,8 @@ const Header: React.FC = () => {
                                 <Link
                                     key={label}
                                     href={href}
-                                    className="text-2xl py-4 mt-2 text-center animate-fade-up animate-duration-500"
-                                    style={{ animationDelay: `${index * 0.2 + 0.4}s` }}
+                                    className="text-2xl py-4 mt-2 text-center animate-fade-up animate-duration-300"
+                                    style={{ animationDelay: `${index * 0.19 + 0.3}s` }}
                                     onClick={toggleMenu}
                                 >
                                     {label}
