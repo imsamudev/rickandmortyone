@@ -73,11 +73,14 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, isOpen, onCl
                 }}
             >
                 <ModalContent>
-                    <ModalHeader className='bg-gradient-to-r from-primary to-primary_1 dark:from-secondary dark:to-secondary_1'>
-                        <div className="text-2xl text-white dark:text-primary font-bold tracking-widest">Character Details</div>
+                    <ModalHeader
+                        className='bg-gradient-to-r from-primary to-primary_1 dark:from-secondary dark:to-secondary_1'>
+                        <div
+                            className="text-2xl text-white dark:text-primary font-bold tracking-widest">Character Details</div>
                     </ModalHeader>
                     <Divider />
-                    <ModalBody className="overflow-auto bg-gradient-to-tr from-white to-gray-300 dark:from-secondary dark:to-secondary_1 py-4">
+                    <ModalBody
+                        className="overflow-auto bg-gradient-to-tr from-white to-gray-300 dark:from-secondary dark:to-secondary_1 py-4">
                         <div className="flex flex-col md:flex-row items-center gap-6">
                             <Image
                                 src={character.image}
@@ -128,7 +131,11 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, isOpen, onCl
 
                         {loadingDetails ? (
                             <div className="flex justify-center items-center">
-                                <Spinner label="Loading details..." labelColor="primary" color="primary" size="lg" />
+                                <Spinner
+                                    label="Loading details..."
+                                    labelColor="primary"
+                                    color="primary"
+                                    size="lg" />
                             </div>
                         ) : (
                             <div>
@@ -149,7 +156,9 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, isOpen, onCl
                     </ModalBody>
                     <Divider />
                     <ModalFooter className='bg-gradient-to-r from-primary to-primary_1 dark:from-secondary dark:to-secondary_1'>
-                        <Button onPress={onClose} className='px-4 py-2 bg-primary dark:bg-secondary_1 text-white dark:text-primary rounded-lg shadow-sm shadow-secondary dark:shadow-primary hover:opacity-60 hover:scale-95 tracking-wider'>
+                        <Button
+                            onPress={onClose}
+                            className='px-4 py-2 bg-primary dark:bg-secondary_1 text-white dark:text-primary rounded-lg shadow-sm shadow-secondary dark:shadow-primary hover:opacity-60 hover:scale-95 tracking-wider'>
                             Close
                         </Button>
                     </ModalFooter>

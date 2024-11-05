@@ -42,18 +42,40 @@ const EpisodeModal: React.FC<EpisodeModalProps> = ({ episode, isOpen, onClose })
     if (!episode) return null;
 
     return (
-        <Modal isOpen={isOpen} onOpenChange={onClose} size="5xl" closeButton>
+        <Modal
+            isOpen={isOpen}
+            onOpenChange={onClose}
+            size="5xl"
+            closeButton
+            classNames={{
+                closeButton: "text-3xl m-1 text-white dark:text-primary hover:bg-primary dark:hover:bg-secondary",
+            }}
+        >
             <ModalContent>
-                <ModalHeader>{episode.name} Details</ModalHeader>
+                <ModalHeader
+                    className='bg-gradient-to-r from-primary to-primary_1 dark:from-secondary dark:to-secondary_1'
+                >
+                    <div
+                        className="text-2xl text-white dark:text-primary font-bold tracking-widest">
+                        {episode.name} Details
+                    </div>
+                </ModalHeader>
                 <Divider />
-                <ModalBody>
+                <ModalBody
+                    className="overflow-auto bg-gradient-to-tr from-white to-gray-300 dark:from-secondary dark:to-secondary_1 py-4"
+                >
                     <div className='mb-4'>
                         <p>Air Date: {episode.air_date}</p>
                         <p>Episode: {episode.episode}</p>
                         <p>Characters: {episode.characters.length}</p>
                     </div>
                     {loadingCharacters ? (
-                        <Spinner label="Loading characters..." labelColor="primary" color="primary" size="lg" />
+                        <Spinner
+                            label="Loading characters..."
+                            labelColor="primary"
+                            color="primary"
+                            size="lg"
+                        />
                     ) : characters.length > 0 ? (
                         <div className=''>
                             <Swiper
@@ -91,8 +113,14 @@ const EpisodeModal: React.FC<EpisodeModalProps> = ({ episode, isOpen, onClose })
                     )}
                 </ModalBody>
                 <Divider />
-                <ModalFooter>
-                    <Button color="danger" onPress={onClose}>Close</Button>
+                <ModalFooter
+                    className='bg-gradient-to-r from-primary to-primary_1 dark:from-secondary dark:to-secondary_1'
+                >
+                    <Button
+                        onPress={onClose}
+                        className='px-4 py-2 bg-primary dark:bg-secondary_1 text-white dark:text-primary rounded-lg shadow-sm shadow-secondary dark:shadow-primary hover:opacity-60 hover:scale-95 tracking-wider'>
+                        Close
+                    </Button>
                 </ModalFooter>
             </ModalContent>
         </Modal>

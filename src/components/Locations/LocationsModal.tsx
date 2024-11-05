@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Divider } from "@nextui-org/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Divider, Spinner } from "@nextui-org/react";
 import { Location } from '@/types/Locations';
 import { Character } from '@/types/Characters';
 import axios from 'axios';
@@ -44,18 +44,40 @@ const LocationModal: React.FC<LocationModalProps> = ({ location, isOpen, onClose
     if (!location) return null;
 
     return (
-        <Modal isOpen={isOpen} onOpenChange={onClose} size="5xl" closeButton>
+        <Modal
+            isOpen={isOpen}
+            onOpenChange={onClose}
+            size="5xl"
+            closeButton
+            classNames={{
+                closeButton: "text-3xl m-1 text-white dark:text-primary hover:bg-primary dark:hover:bg-secondary",
+            }}>
+
             <ModalContent>
-                <ModalHeader>{location.name} Details</ModalHeader>
+                <ModalHeader
+                    className='bg-gradient-to-r from-primary to-primary_1 dark:from-secondary dark:to-secondary_1'
+                >
+                    <div
+                        className='text-2xl text-white dark:text-primary font-bold tracking-widest'>
+                        {location.name} Details
+                    </div>
+                </ModalHeader>
                 <Divider />
-                <ModalBody>
+                <ModalBody
+                    className="overflow-auto bg-gradient-to-tr from-white to-gray-300 dark:from-secondary dark:to-secondary_1 py-4"
+                >
                     <div className='mb-4'>
                         <p>Type: {location.type}</p>
                         <p>Dimension: {location.dimension ?? 'Unknown'}</p>
                         <p>Residents: {location.residents.length}</p>
                     </div>
                     {loadingResidents ? (
-                        <p>Loading residents...</p>
+                        <Spinner
+                            label='Loading residents...'
+                            labelColor='primary'
+                            color="primary"
+                            size="lg"
+                        />
                     ) : residents.length > 0 ? (
                         <div className=''>
                             <Swiper
@@ -93,8 +115,14 @@ const LocationModal: React.FC<LocationModalProps> = ({ location, isOpen, onClose
                     )}
                 </ModalBody>
                 <Divider />
-                <ModalFooter>
-                    <Button color="danger" onPress={onClose}>Close</Button>
+                <ModalFooter
+                    className='bg-gradient-to-r from-primary to-primary_1 dark:from-secondary dark:to-secondary_1'
+                >
+                    <Button
+                        onPress={onClose}
+                        className='px-4 py-2 bg-primary dark:bg-secondary_1 text-white dark:text-primary rounded-lg shadow-sm shadow-secondary dark:shadow-primary hover:opacity-60 hover:scale-95 tracking-wider'>
+                        Close
+                    </Button>
                 </ModalFooter>
             </ModalContent>
         </Modal>
