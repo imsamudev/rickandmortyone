@@ -68,24 +68,23 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, isOpen, onCl
                 onOpenChange={onClose}
                 size="full"
                 closeButton
-                className="h-auto"
                 classNames={{
-                    closeButton: "text-2xl",
+                    closeButton: "text-3xl m-1 text-white dark:text-primary hover:bg-primary dark:hover:bg-secondary",
                 }}
             >
                 <ModalContent>
-                    <ModalHeader>
-                        <div className="text-2xl font-bold">Character Details</div>
+                    <ModalHeader className='bg-gradient-to-r from-primary to-primary_1 dark:from-secondary dark:to-secondary_1'>
+                        <div className="text-2xl text-white dark:text-primary font-bold tracking-widest">Character Details</div>
                     </ModalHeader>
                     <Divider />
-                    <ModalBody className="overflow-auto max-h-[80vh]">
+                    <ModalBody className="overflow-auto bg-gradient-to-tr from-white to-gray-300 dark:from-secondary dark:to-secondary_1 py-4">
                         <div className="flex flex-col md:flex-row items-center gap-6">
                             <Image
                                 src={character.image}
                                 alt={character.name}
-                                width={200}
-                                height={200}
-                                className="rounded-lg"
+                                width={225}
+                                height={225}
+                                className="rounded-lg shadow-md shadow-secondary dark:shadow-primary"
                             />
                             <div className="text-lg">
                                 <h2 className="text-3xl md:text-4xl pb-2">
@@ -101,7 +100,7 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, isOpen, onCl
                                     {origin ? (
                                         <span
                                             onClick={() => openLocationModal(origin)}
-                                            className="cursor-pointer hover:underline"
+                                            className="cursor-pointer underline hover:no-underline hover:tracking-wider hover:duration-300"
                                         >
                                             {origin.name}
                                         </span>
@@ -114,7 +113,7 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, isOpen, onCl
                                     {location ? (
                                         <span
                                             onClick={() => openLocationModal(location)}
-                                            className="cursor-pointer hover:underline"
+                                            className="cursor-pointer underline hover:no-underline hover:tracking-wider hover:duration-300"
                                         >
                                             {location.name}
                                         </span>
@@ -133,12 +132,12 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, isOpen, onCl
                             </div>
                         ) : (
                             <div>
-                                <h3 className="text-xl font-semibold mb-2">Episodes:</h3>
+                                <h3 className="text-2xl font-semibold mb-2">Episodes:</h3>
                                 <ul className="list-disc list-inside">
                                     {episodes.map((episode) => (
                                         <li
                                             key={episode.id}
-                                            className="cursor-pointer hover:underline"
+                                            className="cursor-pointer underline hover:no-underline hover:text-white hover:dark:text-primary_1 hover:text-lg hover:tracking-wider hover:duration-300 hover:bg-gradient-to-r from-primary to-primary_1 dark:from-secondary dark:to-black p-2 rounded-lg"
                                             onClick={() => openEpisodeModal(episode)}
                                         >
                                             {episode.name} (Air date: {episode.air_date})
@@ -149,8 +148,8 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, isOpen, onCl
                         )}
                     </ModalBody>
                     <Divider />
-                    <ModalFooter>
-                        <Button color="danger" onPress={onClose}>
+                    <ModalFooter className='bg-gradient-to-r from-primary to-primary_1 dark:from-secondary dark:to-secondary_1'>
+                        <Button onPress={onClose} className='px-4 py-2 bg-primary dark:bg-secondary_1 text-white dark:text-primary rounded-lg shadow-sm shadow-secondary dark:shadow-primary hover:opacity-60 hover:scale-95 tracking-wider'>
                             Close
                         </Button>
                     </ModalFooter>
