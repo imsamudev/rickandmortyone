@@ -15,7 +15,7 @@ const SmallCard: React.FC<SmallCardProps> = ({ character }) => {
 
     return (
         <>
-            <div className="relative w-48 h-48 mx-auto"
+            <div className="relative w-48 h-48 mx-auto cursor-pointer hover:scale-95 hover:duration-300"
                 onClick={handleOpenModal}>
                 <Image
                     src={character.image}
@@ -24,7 +24,8 @@ const SmallCard: React.FC<SmallCardProps> = ({ character }) => {
                     objectFit="cover"
                     className="rounded-t-lg"
                 />
-                <div className="absolute bg-gradient-to-tr from-black w-full bottom-0 text-white py-2">
+                <div
+                    className="absolute bg-gradient-to-tr from-primary to-primary_1 dark:from-black dark:to-secondary_1 w-full bottom-0 text-white dark:text-primary shadow-md shadow-secondary dark:shadow-primary py-2">
                     <h3 className="text-base px-2">{character.name}</h3>
                 </div>
             </div>
