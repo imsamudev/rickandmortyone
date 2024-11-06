@@ -5,6 +5,7 @@ import HeroSection from '@/components/UI/HeroSection/HeroSection';
 import FilterTitles from '@/components/UI/FilterTitles/FilterTitles';
 import Card from '@/components/Characters/Card';
 import FilterCharacter from '@/components/Characters/FilterCharacter';
+import ErrorSearch from '@/components/UI/Errors/ErrorSearch';
 import { Character } from '@/types/Characters';
 import { PaginationInfo } from '@/types/Pagination';
 import { Spinner } from "@nextui-org/react";
@@ -63,7 +64,7 @@ const CharactersPage: React.FC = () => {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-4">
             <HeroSection title="Characters" />
             <div className='text-left my-4 animate-fade-up animate-duration-500 animate-delay-600 sm:animate-fade-right'>
                 <FilterTitles section="characters" />
@@ -77,9 +78,7 @@ const CharactersPage: React.FC = () => {
                     <Spinner label="Loading characters..." labelColor="primary" color="primary" size="lg" />
                 </div>
             ) : error ? (
-                <div className="w-full h-[100vh] flex justify-center items-center">
-                    <h2 className="">NOT FOUND</h2>
-                </div>
+                <ErrorSearch />
             ) : (
 
                 <>

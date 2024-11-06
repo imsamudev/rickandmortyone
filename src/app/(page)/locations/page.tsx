@@ -5,6 +5,7 @@ import HeroSection from '@/components/UI/HeroSection/HeroSection';
 import FilterTitles from '@/components/UI/FilterTitles/FilterTitles';
 import TableLocations from '@/components/Locations/TableLocations';
 import FilterLocations from '@/components/Locations/FilterLocations';
+import ErrorSearch from '@/components/UI/Errors/ErrorSearch';
 import { Spinner } from "@nextui-org/react";
 import { Location } from '@/types/Locations';
 import { PaginationInfo } from '@/types/Pagination';
@@ -62,7 +63,7 @@ const LocationsPage: React.FC = () => {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-4">
             <HeroSection title="Locations" />
             <div className='text-left my-4 animate-fade-up animate-duration-500 animate-delay-600 sm:animate-fade-right'>
                 <FilterTitles section="locations" />
@@ -72,13 +73,16 @@ const LocationsPage: React.FC = () => {
             </div>
 
             {loading ? (
-                <div className="w-full h-[100vh] flex justify-center items-center">
-                    <Spinner label="Loading locations..." labelColor="primary" color="primary" size="lg" />
+                <div className="w-full h-[40vh] flex justify-center items-center">
+                    <Spinner
+                        label="Loading locations..."
+                        labelColor="primary"
+                        color="primary"
+                        size="lg"
+                    />
                 </div>
             ) : error ? (
-                <div className="w-full h-[100vh] flex justify-center items-center">
-                    <h2 className="">NOT FOUND</h2>
-                </div>
+                <ErrorSearch />
             ) : (
                 <>
                     <div className='animate-fade-up animate-duration-500 animate-delay-200'>
