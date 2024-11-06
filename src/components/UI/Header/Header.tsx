@@ -24,7 +24,13 @@ const Header: React.FC = () => {
             <div className="container mx-auto flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                     <Link href={"/"} className="flex items-center space-x-2">
-                        <Image src={Logo} alt="Logo" width={150} height={150} />
+                        <Image
+                            src={Logo}
+                            alt="Logo"
+                            width={150}
+                            height={150}
+                            className="sm:w-52 lg:w-64 xl:72"
+                        />
                     </Link>
                 </div>
                 <nav className="hidden sm:flex sm:items-center sm:space-x-2 lg:space-x-4 ml-auto">
