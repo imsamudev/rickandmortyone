@@ -3,12 +3,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import HeroSection from '@/components/UI/HeroSection/HeroSection';
 import FilterTitles from '@/components/UI/FilterTitles/FilterTitles';
-import TableEpisodes from '@/components/Episodes/TableEpisodes';
-import FilterEpisodes from '@/components/Episodes/FilterEpisodes';
+import FilterSearch from '@/components/UI/FilterSearch/FilterSearch';
+import LoadingSearch from '@/components/UI/Loaders/LoadingSearch';
 import ErrorSearch from '@/components/UI/Errors/ErrorSearch';
-import { Spinner } from "@nextui-org/react";
+import TableEpisodes from '@/components/Episodes/TableEpisodes';
 import { Episode } from '@/types/Episodes';
 import { PaginationInfo } from '@/types/Pagination';
+
 
 
 const EpisodesPage: React.FC = () => {
@@ -69,14 +70,12 @@ const EpisodesPage: React.FC = () => {
             <div className='text-left my-4 animate-fade-up animate-duration-500 animate-delay-600 sm:animate-fade-right'>
                 <FilterTitles section="episodes" />
                 <div className='w-[100%] flex justify-start mt-4'>
-                    <FilterEpisodes onSearch={handleSearch} loading={loading} />
+                    <FilterSearch onSearch={handleSearch} loading={loading} placeholder="Search episodes..." />
                 </div>
             </div>
 
             {loading ? (
-                <div className="w-full h-[100vh] flex justify-center items-center">
-                    <Spinner label="Loading episodes..." color="primary" size="lg" />
-                </div>
+                <LoadingSearch section='episodes' />
             ) : error ? (
                 <ErrorSearch />
             ) : (

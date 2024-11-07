@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import HeroSection from '@/components/UI/HeroSection/HeroSection';
 import FilterTitles from '@/components/UI/FilterTitles/FilterTitles';
-import TableLocations from '@/components/Locations/TableLocations';
-import FilterLocations from '@/components/Locations/FilterLocations';
+import FilterSearch from '@/components/UI/FilterSearch/FilterSearch';
 import ErrorSearch from '@/components/UI/Errors/ErrorSearch';
-import { Spinner } from "@nextui-org/react";
+import LoadingSearch from '@/components/UI/Loaders/LoadingSearch';
+import TableLocations from '@/components/Locations/TableLocations';
 import { Location } from '@/types/Locations';
 import { PaginationInfo } from '@/types/Pagination';
 
@@ -68,19 +68,14 @@ const LocationsPage: React.FC = () => {
             <div className='text-left my-4 animate-fade-up animate-duration-500 animate-delay-600 sm:animate-fade-right'>
                 <FilterTitles section="locations" />
                 <div className='w-[100%] flex justify-start mt-4'>
-                    <FilterLocations onSearch={handleSearch} loading={loading} />
+                    <FilterSearch onSearch={handleSearch} loading={loading} placeholder="Search locations..." />
+
                 </div>
             </div>
 
             {loading ? (
-                <div className="w-full h-[40vh] flex justify-center items-center">
-                    <Spinner
-                        label="Loading locations..."
-                        labelColor="primary"
-                        color="primary"
-                        size="lg"
-                    />
-                </div>
+                <LoadingSearch section='locations' />
+
             ) : error ? (
                 <ErrorSearch />
             ) : (

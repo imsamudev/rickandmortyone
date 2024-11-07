@@ -3,12 +3,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import HeroSection from '@/components/UI/HeroSection/HeroSection';
 import FilterTitles from '@/components/UI/FilterTitles/FilterTitles';
-import Card from '@/components/Characters/Card';
-import FilterCharacter from '@/components/Characters/FilterCharacter';
+import FilterSearch from '@/components/UI/FilterSearch/FilterSearch';
 import ErrorSearch from '@/components/UI/Errors/ErrorSearch';
+import LoadingSearch from '@/components/UI/Loaders/LoadingSearch';
+import Card from '@/components/Characters/Card';
 import { Character } from '@/types/Characters';
 import { PaginationInfo } from '@/types/Pagination';
-import { Spinner } from "@nextui-org/react";
+
 
 
 const CharactersPage: React.FC = () => {
@@ -69,24 +70,22 @@ const CharactersPage: React.FC = () => {
             <div className='text-left my-4 animate-fade-up animate-duration-500 animate-delay-600 sm:animate-fade-right'>
                 <FilterTitles section="characters" />
                 <div className='w-[100%] flex justify-start mt-4'>
-                    <FilterCharacter onSearch={handleSearch} loading={loading} />
+                    <FilterSearch onSearch={handleSearch} loading={loading} placeholder="Search characters..." />
                 </div>
             </div>
 
             {loading ? (
-                <div className='w-full h-[100vh] flex justify-center items-center'>
-                    <Spinner label="Loading characters..." labelColor="primary" color="primary" size="lg" />
-                </div>
+                <LoadingSearch section='characters' />
             ) : error ? (
                 <ErrorSearch />
             ) : (
-
                 <>
                     <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 sm:justify-items-start md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                         {characters.map((character) => (
                             <Card key={character.id} character={character} />
                         ))}
                     </div>
+
                     {paginationInfo && (
                         <div className="mt-8 flex justify-center items-center space-x-4">
                             <button
