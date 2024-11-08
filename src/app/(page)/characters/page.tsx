@@ -7,6 +7,7 @@ import FilterSearch from '@/components/UI/FilterSearch/FilterSearch';
 import ErrorSearch from '@/components/UI/Errors/ErrorSearch';
 import LoadingSearch from '@/components/UI/Loaders/LoadingSearch';
 import Card from '@/components/Characters/Card';
+import PaginationButtons from '@/components/UI/Pagination/PaginationButtons';
 import { Character } from '@/types/Characters';
 import { PaginationInfo } from '@/types/Pagination';
 
@@ -52,18 +53,6 @@ const CharactersPage: React.FC = () => {
         }
     };
 
-    const handlePrevPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-        }
-    };
-
-    const handleNextPage = () => {
-        if (paginationInfo && currentPage < paginationInfo.pages) {
-            setCurrentPage(currentPage + 1);
-        }
-    };
-
     return (
         <div className="container mx-auto px-4 py-4">
             <HeroSection title="Characters" />
@@ -87,23 +76,14 @@ const CharactersPage: React.FC = () => {
                     </div>
 
                     {paginationInfo && (
-                        <div className="mt-8 flex justify-center items-center space-x-4">
-                            <button
-                                onClick={handlePrevPage}
-                                disabled={currentPage <= 1}
-                                className="px-4 py-2 bg-primary dark:bg-secondary_1 text-white dark:text-primary rounded-lg shadow-sm shadow-secondary dark:shadow-primary disabled:bg-primary_1 dark:disabled:bg-secondary hover:opacity-70 disabled:hover:opacity-100"
-                            >
-                                Prev
-                            </button>
-                            <span>Page {currentPage} of {paginationInfo?.pages ?? '?'}</span>
-                            <button
-                                onClick={handleNextPage}
-                                disabled={!paginationInfo || currentPage >= paginationInfo.pages}
-                                className="px-4 py-2 bg-primary dark:bg-secondary_1 text-white dark:text-primary rounded-lg shadow-sm shadow-secondary dark:shadow-primary disabled:bg-primary_1 dark:disabled:bg-secondary hover:opacity-70 disabled:hover:opacity-100"
-                            >
-                                Next
-                            </button>
-                        </div>
+                        <PaginationButtons
+                            currentPage={currentPage}
+                            totalPages={paginationInfo.pages}
+                            onPrevPage={() => setCurrentPage(currentPage - 1)}
+                            onNextPage={() => setCurrentPage(currentPage + 1)}
+                            hasPrevPage={paginationInfo.prev !== null}
+                            hasNextPage={paginationInfo.next !== null}
+                        />
                     )}
                 </>
             )}
