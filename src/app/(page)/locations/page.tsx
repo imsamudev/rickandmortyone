@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import HeroSection from '@/components/UI/HeroSection/HeroSection';
 import FilterTitles from '@/components/UI/FilterTitles/FilterTitles';
@@ -18,6 +18,7 @@ const LocationsPage: React.FC = () => {
     const [query, setQuery] = useState<string>('');
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [paginationInfo, setPaginationInfo] = useState<PaginationInfo | null>(null);
+    const searchBoxRef = useRef<HTMLDivElement | null>(null);
 
     const fetchLocations = async (searchQuery = '', page = 1) => {
         setLoading(true);
@@ -54,7 +55,7 @@ const LocationsPage: React.FC = () => {
     return (
         <div className="container mx-auto px-4 py-4">
             <HeroSection title="Locations" />
-            <div className='text-left my-4 animate-fade-up animate-duration-500 animate-delay-600 sm:animate-fade-right'>
+            <div ref={searchBoxRef} className='text-left my-4 animate-fade-up animate-duration-500 animate-delay-600 sm:animate-fade-right'>
                 <FilterTitles section="locations" />
                 <div className='w-[100%] flex justify-start mt-4'>
                     <FilterSearch onSearch={handleSearch} loading={loading} placeholder="Search locations..." />
@@ -81,6 +82,7 @@ const LocationsPage: React.FC = () => {
                             onNextPage={() => setCurrentPage(currentPage + 1)}
                             hasPrevPage={paginationInfo.prev !== null}
                             hasNextPage={paginationInfo.next !== null}
+                            searchBoxRef={searchBoxRef}
                         />
                     )}
                 </>

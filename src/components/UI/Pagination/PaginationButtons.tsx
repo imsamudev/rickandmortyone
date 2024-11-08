@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MutableRefObject } from 'react';
 
 interface PaginationProps {
     currentPage: number;
@@ -7,6 +7,7 @@ interface PaginationProps {
     onNextPage: () => void;
     hasPrevPage: boolean;
     hasNextPage: boolean;
+    searchBoxRef: MutableRefObject<HTMLDivElement | null>;
 }
 
 const PaginationButtons: React.FC<PaginationProps> = ({
@@ -15,12 +16,34 @@ const PaginationButtons: React.FC<PaginationProps> = ({
     onPrevPage,
     onNextPage,
     hasPrevPage,
-    hasNextPage
+    hasNextPage,
+    searchBoxRef
 }) => {
+
+    const handlePrevPage = () => {
+        onPrevPage();
+        if (searchBoxRef.current) {
+            searchBoxRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    };
+
+    const handleNextPage = () => {
+        onNextPage();
+        if (searchBoxRef.current) {
+            searchBoxRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    };
+
     return (
         <div className="mt-8 flex justify-center items-center space-x-4">
             <button
-                onClick={onPrevPage}
+                onClick={handlePrevPage}
                 disabled={!hasPrevPage}
                 className="px-4 py-2 bg-primary dark:bg-secondary_1 text-white dark:text-primary rounded-lg shadow-sm shadow-secondary dark:shadow-primary disabled:bg-primary_1 dark:disabled:bg-secondary hover:opacity-70 disabled:hover:opacity-100"
             >
@@ -28,7 +51,7 @@ const PaginationButtons: React.FC<PaginationProps> = ({
             </button>
             <span>Page {currentPage} of {totalPages}</span>
             <button
-                onClick={onNextPage}
+                onClick={handleNextPage}
                 disabled={!hasNextPage}
                 className="px-4 py-2 bg-primary dark:bg-secondary_1 text-white dark:text-primary rounded-lg shadow-sm shadow-secondary dark:shadow-primary disabled:bg-primary_1 dark:disabled:bg-secondary hover:opacity-70 disabled:hover:opacity-100"
             >
