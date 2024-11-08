@@ -24,24 +24,24 @@ const TableEpisodes: React.FC<TableEpisodesProps> = ({ episodes }) => {
     return (
         <>
             <div className="overflow-x-auto">
-                <table className="min-w-full table-auto bg-white dark:bg-secondary shadow-md rounded-lg overflow-hidden">
-                    <thead className="bg-primary text-white">
+                <table className="min-w-full table-auto bg-white dark:bg-secondary rounded-lg overflow-hidden">
+                    <thead className="bg-primary text-white text-lg tracking-wider dark:text-secondary">
                         <tr>
-                            <th className="py-3 px-6 text-left">Name</th>
-                            <th className="py-3 px-6 text-left hidden sm:table-cell">Air Date</th>
-                            <th className="py-3 px-6 text-left hidden md:table-cell">Episode</th>
-                            <th className="py-3 px-6 text-right">Action</th>
+                            <th className="py-3 px-4 text-left">Name</th>
+                            <th className="py-3 px-4 text-left hidden sm:table-cell">Air Date</th>
+                            <th className="py-3 px-4 text-left hidden md:table-cell">Episode</th>
+                            <th className="py-3 px-4 text-right">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {episodes.map((episode) => (
-                            <tr key={episode.id} className="border-b">
-                                <td className="py-4 px-6">{episode.name}</td>
-                                <td className="py-4 px-6 hidden sm:table-cell">{episode.air_date}</td>
-                                <td className="py-4 px-6 hidden md:table-cell">{episode.episode}</td>
-                                <td className="py-4 px-6 text-right">
+                            <tr key={episode.id} className="border-b border-opacity-40 border-primary">
+                                <td className="p-4">{episode.name}</td>
+                                <td className="p-4 hidden sm:table-cell">{episode.air_date}</td>
+                                <td className="p-4 hidden md:table-cell">{episode.episode}</td>
+                                <td className="p-4 text-right">
                                     <button
-                                        className="text-blue-500 hover:text-blue-700"
+                                        className="text-white dark:text-secondary bg-primary hover:bg-primary_1 hover:scale-90 transition-all duration-300 px-4 py-2 rounded-lg"
                                         onClick={() => handleOpenModal(episode)}
                                     >
                                         <FaFileAlt size={20} />
