@@ -13,7 +13,7 @@ const navLinks: NavLink[] = [
     { label: "Characters", href: "/characters" },
     { label: "Locations", href: "/locations" },
     { label: "Episodes", href: "/episodes" },
-    { label: "About", href: "/about" },
+    { label: "Game", href: "/trivia" },
 ];
 
 const Header: React.FC = () => {
